@@ -146,86 +146,86 @@ ENV NGX_CFLAGS=$NGX_CFLAGS
 ARG NGX_LDOPT="-Wl,-rpath,/usr/local/lib -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -pie"
 ENV NGX_LDOPT=$NGX_LDOPT
 ARG NGINX_BUILD_CONFIG="\
-            --prefix=/etc/nginx \
-            --sbin-path=/usr/sbin/nginx \
-            --modules-path=/usr/lib/nginx/modules \
-            --conf-path=/etc/nginx/nginx.conf \
-            --error-log-path=/var/log/nginx/error.log \
-            --http-log-path=/var/log/nginx/access.log \
-            --pid-path=/var/run/nginx.pid \
-            --lock-path=/var/run/nginx.lock \
-            --http-client-body-temp-path=/var/cache/nginx/client_temp \
-            --http-proxy-temp-path=/var/cache/nginx/proxy_temp \
-            --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp \
-            --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp \
-            --http-scgi-temp-path=/var/cache/nginx/scgi_temp \
-            --with-perl_modules_path=/usr/lib/perl5/vendor_perl \
-            --user=nginx \
-            --group=nginx \
-            --with-compat \
-            --with-file-aio \
-            --with-threads \
-            --with-http_addition_module \
-            --with-http_auth_request_module \
-            --with-http_dav_module \
-            --with-http_flv_module \
-            --with-http_gunzip_module \
-            --with-http_gzip_static_module \
-            --with-http_mp4_module \
-            --with-http_random_index_module \
-            --with-http_realip_module \
-            --with-http_secure_link_module \
-            --with-http_slice_module \
-            --with-http_ssl_module \
-            --with-http_stub_status_module \
-            --with-http_sub_module \
-            --with-http_v2_module \
-            --with-mail \
-            --with-mail_ssl_module \
-            --with-stream \
-            --with-stream_realip_module \
-            --with-stream_ssl_module \
-            --with-stream_ssl_preread_module \
-            --add-module=/lua-nginx-module-${VER_LUA_NGINX_MODULE} \
-            --add-module=/ngx_devel_kit-${VER_NGX_DEVEL_KIT} \
-            --add-module=/lua-upstream-nginx-module-${VER_LUA_UPSTREAM} \
-            --add-module=/set-misc-nginx-module-${MISC_NGINX_MODULE_VERSION} \
-"
+    --prefix=/etc/nginx \
+    --sbin-path=/usr/sbin/nginx \
+    --modules-path=/usr/lib/nginx/modules \
+    --conf-path=/etc/nginx/nginx.conf \
+    --error-log-path=/var/log/nginx/error.log \
+    --http-log-path=/var/log/nginx/access.log \
+    --pid-path=/var/run/nginx.pid \
+    --lock-path=/var/run/nginx.lock \
+    --http-client-body-temp-path=/var/cache/nginx/client_temp \
+    --http-proxy-temp-path=/var/cache/nginx/proxy_temp \
+    --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp \
+    --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp \
+    --http-scgi-temp-path=/var/cache/nginx/scgi_temp \
+    --with-perl_modules_path=/usr/lib/perl5/vendor_perl \
+    --user=nginx \
+    --group=nginx \
+    --with-compat \
+    --with-file-aio \
+    --with-threads \
+    --with-http_addition_module \
+    --with-http_auth_request_module \
+    --with-http_dav_module \
+    --with-http_flv_module \
+    --with-http_gunzip_module \
+    --with-http_gzip_static_module \
+    --with-http_mp4_module \
+    --with-http_random_index_module \
+    --with-http_realip_module \
+    --with-http_secure_link_module \
+    --with-http_slice_module \
+    --with-http_ssl_module \
+    --with-http_stub_status_module \
+    --with-http_sub_module \
+    --with-http_v2_module \
+    --with-mail \
+    --with-mail_ssl_module \
+    --with-stream \
+    --with-stream_realip_module \
+    --with-stream_ssl_module \
+    --with-stream_ssl_preread_module \
+    --add-module=/lua-nginx-module-${VER_LUA_NGINX_MODULE} \
+    --add-module=/ngx_devel_kit-${VER_NGX_DEVEL_KIT} \
+    --add-module=/lua-upstream-nginx-module-${VER_LUA_UPSTREAM} \
+    --add-module=/set-misc-nginx-module-${MISC_NGINX_MODULE_VERSION} \
+    "
 ENV NGINX_BUILD_CONFIG=$NGINX_BUILD_CONFIG
 
 ARG BUILD_DEPS="\
-        curl \
-        g++ \
-        geoip-dev \
-        gzip \
-        lua${VER_LUA} \
-        lua${VER_LUA}-dev \
-        make \
-        openssl-dev \
-        pcre-dev \
-        tar \
-        zlib-dev \
-"
+    curl \
+    g++ \
+    geoip-dev \
+    gzip \
+    lua${VER_LUA} \
+    lua${VER_LUA}-dev \
+    make \
+    openssl-dev \
+    pcre-dev \
+    tar \
+    zlib-dev \
+    "
 ENV BUILD_DEPS=$BUILD_DEPS
 
 ARG NGINX_BUILD_DEPS="\
-# NGINX
-        alpine-sdk \
-        bash \
-        findutils \
-        gcc \
-        gd-dev \
-        geoip-dev \
-        libc-dev \
-        libedit-dev \
-        libxslt-dev \
-        linux-headers \
-        make \
-        openssl-dev \
-        pcre-dev \
-        perl-dev \
-        zlib-dev \
-"
+    # NGINX
+    alpine-sdk \
+    bash \
+    findutils \
+    gcc \
+    gd-dev \
+    geoip-dev \
+    libc-dev \
+    libedit-dev \
+    libxslt-dev \
+    linux-headers \
+    make \
+    openssl-dev \
+    pcre-dev \
+    perl-dev \
+    zlib-dev \
+    "
 ENV NGINX_BUILD_DEPS=$NGINX_BUILD_DEPS
 
 ####################################
@@ -240,13 +240,13 @@ COPY tpl/Makefile Makefile
 RUN set -eux \
     && apk update \
     && apk add --no-cache \
-        $BUILD_DEPS \
-        $NGINX_BUILD_DEPS \
+    $BUILD_DEPS \
+    $NGINX_BUILD_DEPS \
     && [ $EXTENDED_IMAGE -eq 1 ] && \
-        NGINX_BUILD_CONFIG="${NGINX_BUILD_CONFIG} \
-            --add-module=/headers-more-nginx-module-${VER_OPENRESTY_HEADERS} \
-            --add-module=/stream-lua-nginx-module-${VER_OPENRESTY_STREAMLUA} \
-        " \
+    NGINX_BUILD_CONFIG="${NGINX_BUILD_CONFIG} \
+    --add-module=/headers-more-nginx-module-${VER_OPENRESTY_HEADERS} \
+    --add-module=/stream-lua-nginx-module-${VER_OPENRESTY_STREAMLUA} \
+    " \
     && make -j "$(nproc)" deps \
     && make -j "$(nproc)" core \
     && make -j "$(nproc)" luarocks
@@ -291,14 +291,14 @@ LABEL maintainer="Fabio Cicerchia <info@fabiocicerchia.it>" \
     versions.stream-lua-nginx-module=${VER_OPENRESTY_STREAMLUA}
 
 ARG PKG_DEPS="\
-        geoip-dev \
-        lua${VER_LUA} \
-        lua${VER_LUA}-dev \
-        openssl-dev \
-        pcre-dev \
-        unzip \
-        zlib-dev \
-"
+    geoip-dev \
+    lua${VER_LUA} \
+    lua${VER_LUA}-dev \
+    openssl-dev \
+    pcre-dev \
+    unzip \
+    zlib-dev \
+    "
 ENV PKG_DEPS=$PKG_DEPS
 
 COPY --from=builder /etc/nginx /etc/nginx
@@ -316,35 +316,35 @@ SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 RUN set -eux \
     && apk update \
     && apk add --no-cache --virtual .pkg_deps \
-        $PKG_DEPS \
-# Fix LUA alias
+    $PKG_DEPS \
+    # Fix LUA alias
     && ln -sf /usr/bin/lua${VER_LUA} /usr/local/bin/lua \
-# Bring in gettext so we can get `envsubst`, then throw
-# the rest away. To do this, we need to install `gettext`
-# then move `envsubst` out of the way so `gettext` can
-# be deleted completely, then move `envsubst` back.
+    # Bring in gettext so we can get `envsubst`, then throw
+    # the rest away. To do this, we need to install `gettext`
+    # then move `envsubst` out of the way so `gettext` can
+    # be deleted completely, then move `envsubst` back.
     && apk add --no-cache --virtual .gettext gettext \
     && mv /usr/bin/envsubst /tmp/ \
     && runDeps="$( \
-        scanelf --needed --nobanner /tmp/envsubst \
-            | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }' \
-            | sort -u \
-            | xargs -r apk info --installed \
-            | sort -u \
+    scanelf --needed --nobanner /tmp/envsubst \
+    | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }' \
+    | sort -u \
+    | xargs -r apk info --installed \
+    | sort -u \
     )" \
     && apk add --no-cache --virtual .run_deps $runDeps \
     && apk del .gettext \
     && mv /tmp/envsubst /usr/local/bin/ \
-# Bring in tzdata so users could set the timezones through the environment
-# variables
+    # Bring in tzdata so users could set the timezones through the environment
+    # variables
     && apk add --no-cache --virtual pkg_tz tzdata \
-# Bring in curl and ca-certificates to make registering on DNS SD easier
+    # Bring in curl and ca-certificates to make registering on DNS SD easier
     && apk add --no-cache --virtual pkg_dns curl ca-certificates \
-# forward request and error logs to docker log collector
+    # forward request and error logs to docker log collector
     && mkdir -p /var/log/nginx \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log \
-# create nginx user/group first, to be consistent throughout docker variants
+    # create nginx user/group first, to be consistent throughout docker variants
     && addgroup -g 101 -S nginx \
     && adduser -S -D -H -u 101 -h /var/cache/nginx -s /sbin/nologin -G nginx -g nginx nginx \
     && mkdir /docker-entrypoint.d
@@ -361,7 +361,8 @@ RUN envsubst -V \
     && nginx -V \
     && nginx -t \
     && lua -v \
-    && luarocks --version
+    && luarocks --version \
+    && uarocks install lua-cjson
 
 EXPOSE 80 443
 

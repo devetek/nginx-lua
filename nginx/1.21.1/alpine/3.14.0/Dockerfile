@@ -28,7 +28,7 @@ ARG EXTENDED_IMAGE=1
 ENV EXTENDED_IMAGE=$EXTENDED_IMAGE
 
 # lua
-ARG VER_LUA=5.4
+ARG VER_LUA=5.1
 ENV VER_LUA=$VER_LUA
 
 # ngx_devel_kit
@@ -362,7 +362,8 @@ RUN envsubst -V \
     && nginx -t \
     && lua -v \
     && luarocks --version \
-    && uarocks install lua-cjson
+    && apk add gcc musl-dev coreutils \
+    && luarocks install lua-cjson 2.1.0-1
 
 EXPOSE 80 443
 

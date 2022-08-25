@@ -10,7 +10,7 @@
 PAGER:=
 DOCKERFILE_CHANGES=$(shell (git fetch origin main > /dev/null; git diff-tree --no-commit-id --name-only -r origin/main) | egrep "(nginx|tpl)/" | wc -l | tr -d ' ')
 ifeq ($(DOCKERFILE_CHANGES), 0)
-	SKIP=1
+	SKIP=0
 else
 	SKIP=0
 endif
